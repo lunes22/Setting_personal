@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/day"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="D-25"
-        android:textSize="27dp"
-        android:fontFamily="@font/pretendard_regular"
-        android:textColor="@color/mainPurple"
-        android:layout_gravity="center"/>
-
-
+        app:tabMode="fixed"
+        app:tabGravity="fill"/>
 
 </LinearLayout>
