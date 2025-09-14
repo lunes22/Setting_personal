@@ -3,4 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainPurple">#6C63FF</color>
+    <color name="mainPurple_51">#826C63FF</color>
+    <color name="gray">#605F66</color>
+    <color name="blueGreen">#08A6C9</color>
+    <color name="blueGreen_54">#8A08A6C9</color>
 </resources>
