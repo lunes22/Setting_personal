@@ -1,5 +1,6 @@
 package com.example.antibrokedswu
+
 import androidx.fragment.app.Fragment
 
-class LoginMessageDone :  Fragment(R.layout.fragment_login_message_done){
+class MbtiFragment : Fragment(R.layout.fragment_mbti) {
 }

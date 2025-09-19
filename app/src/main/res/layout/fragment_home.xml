@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="D-25"
-        android:textSize="27dp"
+        android:textSize="25dp"
         android:fontFamily="@font/pretendard_regular"
         android:textColor="@color/mainPurple"/>
 
@@ -47,6 +47,7 @@
         android:background="@drawable/rounded_bg"
         android:layout_gravity="center"
         android:layout_marginTop="8dp">
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_gravity="center"
@@ -59,6 +60,67 @@
             android:padding="3dp"
             android:max="100"
             android:progress="60" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:background="@drawable/rounded_square"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8월 소비내역"
+            android:textStyle="bold"
+            android:fontFamily="@font/pretendard_regular"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="35dp"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btnMbti"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
+            android:text="소비 MBTI 재검사"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/pretendard_regular"
+            android:backgroundTint="@color/skyblue_55"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnRegret"
+            android:layout_width="170dp"
+            android:layout_height="55dp"
+            android:text="후회템 바로가기"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/pretendard_regular"
+            android:backgroundTint="@color/orange_66"/>
     </LinearLayout>
 
 

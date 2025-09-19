@@ -2,6 +2,5 @@ package com.example.antibrokedswu
 
 import androidx.fragment.app.Fragment
 
-
-class HomeFragment : Fragment(R.layout.fragment_home){
+class LoginByEmailFragment :  Fragment(R.layout.fragment_login_by_email){
 }
