@@ -1,6 +1,7 @@
 package com.example.antibrokedswu
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.antibrokedswu.databinding.FragmentHomeBinding
+import com.example.antibrokedswu.home.RegretFragment
 import com.github.mikephil.charting.components.MarkerView
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
@@ -25,6 +27,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentHomeBinding.bind(view)
         setupPieChart()
+
+        binding.btnMbti.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, MbtiFragment())
+                 .addToBackStack(null)
+                 .commit()
+        }
+
+        binding.btnRegret.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.container, RegretFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun setupPieChart() = with(binding.pieChart) {
