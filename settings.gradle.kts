@@ -1,14 +1,9 @@
 pluginManagement {
-    repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
-        gradlePluginPortal()
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
+    plugins {
+        id("com.android.application") version "8.9.1"
+        id("com.android.library")     version "8.9.1"
+        id("org.jetbrains.kotlin.android") version "1.9.24"
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://jitpack.io")
     }
 }
 
