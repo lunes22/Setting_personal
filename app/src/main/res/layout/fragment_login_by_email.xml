@@ -47,6 +47,7 @@
         android:textColor="@color/gray"/>
 
     <EditText
+        android:id="@+id/ownEmail"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="이메일을 입력해주세요."
@@ -57,6 +58,7 @@
         android:fontFamily="@font/pretendard_regular" />
 
     <Button
+        android:id="@+id/OKbutton"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
