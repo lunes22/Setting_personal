@@ -2,5 +2,5 @@ package com.example.antibrokedswu
 
 import androidx.fragment.app.Fragment
 
-class LoginMessage :  Fragment(R.layout.fragment_login_message){
+class LoginMessageFragment :  Fragment(R.layout.fragment_login_message){
 }
