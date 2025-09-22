@@ -2,42 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/pretendard_regular"
-            android:text="Welcome!"
-            android:textColor="@color/black"
-            android:textSize="30dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="center"
+        android:text="Welcome!"
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:text="회원가입이\n완료되었습니다!"
-            android:textSize="50dp"
-            android:fontFamily="@font/pretendard_regular"
-            android:textColor="@color/black" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="center"
+        android:text="회원가입이\n완료되었습니다!"
+        android:textColor="@color/black"
+        android:textSize="50dp" />
 
 
     <Button
-        android:id="@+id/HomeButton"
+        android:id="@+id/btnToHome"
         android:layout_width="270dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        android:backgroundTint="#6C63FF"
-        android:text="메인으로 가기"
         android:layout_marginTop="100dp"
+        android:backgroundTint="#6C63FF"
+        android:fontFamily="@font/pretendard_regular"
         android:inputType="textEmailAddress"
-        android:textSize="30dp"
-        android:fontFamily="@font/pretendard_regular"/>
+        android:text="메인으로 가기"
+        android:textSize="30dp" />
 </LinearLayout>
