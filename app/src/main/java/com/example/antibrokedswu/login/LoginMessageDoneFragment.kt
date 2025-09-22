@@ -3,6 +3,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.antibrokedswu.databinding.FragmentLoginMessageDoneBinding
+import com.google.android.material.tabs.TabLayout
 
 
 class LoginMessageDoneFragment :  Fragment(R.layout.fragment_login_message_done){
@@ -18,6 +19,8 @@ class LoginMessageDoneFragment :  Fragment(R.layout.fragment_login_message_done)
                 .replace(R.id.container, HomeFragment())
                 .addToBackStack(null)
                 .commit()
+            (activity as? MainActivity)?.findViewById<TabLayout>(R.id.tabLayout)?.visibility = View.VISIBLE
         }
     }
 }
+

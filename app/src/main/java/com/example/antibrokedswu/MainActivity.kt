@@ -2,6 +2,7 @@ package com.example.antibrokedswu
 
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.antibrokedswu.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
@@ -30,8 +31,9 @@ class MainActivity : AppCompatActivity() {
         // 초기 화면
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.container.id, LoginHomeFragment()) //(구)HomeFragment() - 초기 화면 수정 완
+                .replace(binding.container.id, LoginHomeFragment())
                 .commit()
+            binding.tabLayout.visibility = View.GONE
         }
 
         // 탭 클릭 시 fragment 교체
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                     .replace(binding.container.id, fragment)
                     .commit()
             }
+
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
