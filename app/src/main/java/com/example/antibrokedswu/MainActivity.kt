@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         // 초기 화면
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.container.id, HomeFragment())
+                .replace(binding.container.id, LoginHomeFragment()) //(구)HomeFragment() - 초기 화면 수정 완
                 .commit()
         }
 
