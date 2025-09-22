@@ -1,4 +1,4 @@
-package com.example.antibrokedswu
+package com.example.antibrokedswu.database
 
 data class UsersDataModel(
     val id: Long,
