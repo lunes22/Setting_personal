@@ -39,6 +39,7 @@
             android:fontFamily="@font/pretendard_regular"
             android:textColor="@color/gray" />
         <ImageButton
+            android:id="@+id/EmailLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -54,18 +55,21 @@
             android:fontFamily="@font/pretendard_regular"
             android:textColor="@color/gray" />
         <ImageButton
+            android:id="@+id/GoogleLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:src="@drawable/bt_login_google"/>
         <ImageButton
+            android:id="@+id/KakaoLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:src="@drawable/bt_login_kakao"/>
         <ImageButton
+            android:id="@+id/NaverLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"

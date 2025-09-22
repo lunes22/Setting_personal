@@ -30,6 +30,7 @@
 
 
     <Button
+        android:id="@+id/HomeButton"
         android:layout_width="270dp"
         android:layout_height="70dp"
         android:layout_gravity="center"

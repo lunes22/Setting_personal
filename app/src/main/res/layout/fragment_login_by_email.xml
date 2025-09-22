@@ -46,7 +46,9 @@
         android:fontFamily="@font/pretendard_regular"
         android:textColor="@color/gray"/>
 
+    <!--이메일 입력 받기-->
     <EditText
+        android:id="@+id/ownEmail"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="이메일을 입력해주세요."
@@ -56,7 +58,9 @@
         android:textSize="10pt"
         android:fontFamily="@font/pretendard_regular" />
 
+    <!--확인 버튼 클릭 시, 존재하는 이메일이면 비번 입력, 존재하지 않으면 가입으로 활성화-->
     <Button
+        android:id="@+id/OKbutton"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
