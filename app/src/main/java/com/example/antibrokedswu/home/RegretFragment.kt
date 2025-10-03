@@ -3,6 +3,7 @@ package com.example.antibrokedswu.home
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
@@ -12,6 +13,11 @@ import com.example.antibrokedswu.R
 class RegretFragment : Fragment(R.layout.fragment_regret) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val btnBack = view.findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
 
         val bar1 = view.findViewById<View>(R.id.bar1)
         val bar2 = view.findViewById<View>(R.id.bar2)
