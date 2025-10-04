@@ -16,7 +16,9 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.github.mikephil.charting.utils.MPPointF
+import com.github.mikephil.charting.data.Entry
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -79,6 +81,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val marker = SimplePieMarker(requireContext(), total)
         marker.chartView = this
         this.marker = marker
+
+        setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
+            override fun onValueSelected(e: Entry?, h: Highlight?) {
+                postDelayed({ highlightValues(null) }, 1000)
+            }
+
+            override fun onNothingSelected() {
+            }
+        })
     }
 
     override fun onDestroyView() {
