@@ -4,11 +4,12 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import java.security.MessageDigest
 
 // 데이터베이스 관련 상수 정의
 private const val DATABASE_NAME = "users.db" //DB 이름
-private const val DATABASE_VERSION = 2
+private const val DATABASE_VERSION = 4
 private const val TABLE_NAME = "users" //테이블 이름
 private const val COLUMN_ID = "id" //PK 설정
 //private const val COLUMN_USERNAME = "username" //사용자 이름 컬럼 설정
@@ -20,6 +21,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper
 
     // DB 초기 설정
     override fun onCreate(db: SQLiteDatabase?) { //DB 초기 설정 담당(속성 및 제약조건 등)
+        Log.d("DB_LIFE", "onCreate 호출: 테이블 생성 시작") // ⭐ Log 추가
         val createTableQuery = """ 
             CREATE TABLE $TABLE_NAME ( 
                 $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -28,10 +30,12 @@ class DBHelper(context: Context) : SQLiteOpenHelper
             )
         """.trimIndent()
         db?.execSQL(createTableQuery)
+        Log.d("DB_LIFE", "onCreate 호출: 테이블 생성 완료") // ⭐ Log 추가
     }
 
     //테이블 갱신 시 수정(삭제>재생성)
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        Log.w("DB_LIFE", "onUpgrade 호출: 버전 $oldVersion -> $newVersion")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
@@ -56,14 +60,33 @@ class DBHelper(context: Context) : SQLiteOpenHelper
             put(COLUMN_PASSWORD_HASH, passwordHash)
         }
 
-        // 4. 데이터를 테이블에 삽입하고, 삽입된 행의 ID를 받습니다.
-        // 삽입에 실패하면 -1L이 반환됩니다. (예: UNIQUE 제약 조건 위반 시)
-        val newRowId = db.insert(TABLE_NAME, null, values)
+        // ⭐ 삽입 전 로그 추가: Content Values 확인
+        Log.d("DB_CHECK", "ContentValues: $values")
+        var newRowId: Long = -1L
 
-        // 5. 데이터베이스 연결을 닫습니다. (리소스 해제)
-        db.close()
 
-        // 6. 삽입 성공 여부를 반환합니다.
+        // ⭐ 트랜잭션과 예외 처리 추가 (Log.e 사용)
+        try {
+            db.beginTransaction()
+            newRowId = db.insert(TABLE_NAME, null, values)
+
+            if (newRowId != -1L) {
+                db.setTransactionSuccessful()
+                 Log.d("DBHelper", "사용자 등록 성공: ID $newRowId, Email: $email")
+            } else {
+                // newRowId가 -1L인 경우 (주로 UNIQUE 제약 조건 위반)
+                Log.e("DBHelper", "사용자 등록 실패: db.insert()가 -1L 반환. 이메일 중복 가능성.")
+            }
+        } catch (e: Exception) {
+            Log.e("DBHelper", "사용자 등록 중 예외 발생: ${e.message}", e)
+            // SQL 실행 중 다른 예외 발생 시 (예: 파일 시스템 문제 등)
+            Log.e("DBHelper", "사용자 등록 중 예외 발생: ${e.message}", e)
+        } finally {
+            Log.d("DB_LIFE", "DB 연결 닫기 시도 (addUserWithEmail)")
+            db.endTransaction()
+            db.close() // 데이터베이스 연결 닫기
+        }
+
         return newRowId != -1L
     }
 

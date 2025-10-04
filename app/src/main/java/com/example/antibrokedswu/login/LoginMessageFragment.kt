@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.antibrokedswu.databinding.FragmentLoginMessageBinding
+import com.example.antibrokedswu.login.LoginMessageDoneFragment
+import com.example.antibrokedswu.login.LoginPasswordFragment
 
 
 class LoginMessageFragment :  Fragment(R.layout.fragment_login_message){
